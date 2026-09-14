@@ -1,0 +1,955 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+body {
+    font-family: "Baloo 2", sans-serif;
+    background:
+        radial-gradient(circle at 10% 10%, #ffe6f0, transparent 30%),
+        radial-gradient(circle at 90% 90%, #e8e1ff, transparent 30%),
+        #fff8fb;
+
+    color: #5d5366;
+    overflow: hidden;
+}
+
+
+/* =========================
+   DECORATION
+========================= */
+
+.decor {
+    position: fixed;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.35;
+    animation: floating 5s ease-in-out infinite;
+}
+
+.decor-1 {
+    top: 8%;
+    left: 5%;
+    font-size: 40px;
+    color: #f29abb;
+}
+
+.decor-2 {
+    top: 20%;
+    right: 7%;
+    font-size: 28px;
+    color: #a99be8;
+    animation-delay: 1s;
+}
+
+.decor-3 {
+    bottom: 12%;
+    left: 8%;
+    font-size: 35px;
+    color: #f29abb;
+    animation-delay: 2s;
+}
+
+.decor-4 {
+    bottom: 8%;
+    right: 6%;
+    font-size: 30px;
+    color: #bcaee8;
+    animation-delay: 3s;
+}
+
+@keyframes floating {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(8deg);
+    }
+}
+
+
+/* =========================
+   APP
+========================= */
+
+.app {
+    position: relative;
+    z-index: 1;
+
+    width: min(900px, 94%);
+    height: 94vh;
+
+    margin: 3vh auto;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 20px 60px rgba(100, 80, 120, 0.12);
+
+    backdrop-filter: blur(20px);
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TOP BAR
+========================= */
+
+.top-bar {
+    height: 65px;
+    min-height: 65px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 25px;
+
+    border-bottom: 1px solid #f3e8ef;
+
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.brand {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    color: #9b6f9c;
+}
+
+.slide-number {
+    background: #fff0f6;
+    color: #b66f91;
+
+    padding: 5px 12px;
+
+    border-radius: 20px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   SLIDER
+========================= */
+
+.slider {
+    flex: 1;
+
+    position: relative;
+
+    overflow: hidden;
+
+    touch-action: pan-y;
+}
+
+.slide {
+    position: absolute;
+
+    inset: 0;
+
+    overflow-y: auto;
+
+    padding: 40px 55px;
+
+    opacity: 0;
+    transform: translateX(50px);
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.45s ease;
+}
+
+.slide.active {
+    opacity: 1;
+
+    transform: translateX(0);
+
+    pointer-events: auto;
+}
+
+.slide-content {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    padding-bottom: 30px;
+}
+
+
+/* =========================
+   CENTER
+========================= */
+
+.center {
+    text-align: center;
+}
+
+.big-emoji {
+    font-size: 65px;
+
+    margin-bottom: 5px;
+
+    animation: heartBeat 2s infinite;
+}
+
+@keyframes heartBeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    10% {
+        transform: scale(1.08);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+}
+
+.small-label {
+    font-family: "Fredoka", sans-serif;
+
+    color: #bc8aaa;
+
+    font-size: 12px;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 15px;
+}
+
+
+/* =========================
+   TYPOGRAPHY
+========================= */
+
+h1 {
+    font-family: "Fredoka", sans-serif;
+
+    font-size: clamp(42px, 7vw, 68px);
+
+    line-height: 1;
+
+    color: #9c6b8c;
+
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-family: "Fredoka", sans-serif;
+
+    color: #936a8c;
+
+    font-size: clamp(28px, 5vw, 42px);
+
+    line-height: 1.15;
+
+    margin: 8px 0 25px;
+}
+
+h3 {
+    font-family: "Fredoka", sans-serif;
+
+    color: #ad668d;
+
+    font-size: 28px;
+
+    margin: 25px 0;
+}
+
+p {
+    font-size: 17px;
+
+    line-height: 1.75;
+
+    margin-bottom: 16px;
+}
+
+.intro {
+    font-family: "Fredoka", sans-serif;
+
+    color: #b76e91;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   TAG
+========================= */
+
+.slide-tag {
+    display: inline-block;
+
+    padding: 6px 14px;
+
+    background: #fcebf3;
+
+    color: #b87596;
+
+    border-radius: 20px;
+
+    font-size: 11px;
+
+    letter-spacing: 1.5px;
+
+    font-weight: 700;
+}
+
+
+/* =========================
+   DIVIDER
+========================= */
+
+.divider {
+    color: #d79ab4;
+
+    margin: 15px 0 25px;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================
+   LETTER BOX
+========================= */
+
+.letter-box {
+    background: #fff8fb;
+
+    border: 1px solid #f5e1ea;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    box-shadow: 0 8px 25px rgba(180, 120, 150, 0.06);
+
+    margin-bottom: 25px;
+}
+
+.letter-box p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote-card {
+    background: linear-gradient(
+        135deg,
+        #fff0f6,
+        #f4efff
+    );
+
+    border-radius: 25px;
+
+    padding: 35px;
+
+    position: relative;
+
+    margin-bottom: 25px;
+}
+
+.quote-icon {
+    font-family: Georgia, serif;
+
+    font-size: 80px;
+
+    position: absolute;
+
+    top: -10px;
+    left: 20px;
+
+    color: #dba4bc;
+
+    opacity: 0.6;
+}
+
+.quote-card p {
+    position: relative;
+
+    z-index: 1;
+
+    padding-top: 20px;
+
+    font-size: 21px;
+
+    color: #765f72;
+}
+
+
+/* =========================
+   CUTE MESSAGE
+========================= */
+
+.cute-message {
+    text-align: center;
+
+    padding: 20px;
+}
+
+
+/* =========================
+   PHOTO
+========================= */
+
+.photo-frame {
+    position: relative;
+
+    width: min(400px, 90%);
+
+    margin: 25px auto 10px;
+
+    padding: 10px;
+
+    background: white;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 15px 35px rgba(90, 70, 90, 0.12);
+
+    transform: rotate(-1deg);
+}
+
+.photo-frame img {
+    display: block;
+
+    width: 100%;
+
+    height: 250px;
+
+    object-fit: cover;
+
+    border-radius: 12px;
+}
+
+.photo-decoration {
+    position: absolute;
+
+    right: -12px;
+    top: -18px;
+
+    font-size: 35px;
+}
+
+.polaroid {
+    padding: 12px 12px 25px;
+
+    transform: rotate(2deg);
+}
+
+.polaroid-text {
+    text-align: center;
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #a77a91;
+
+    margin-top: 8px;
+}
+
+
+/* =========================
+   PROMISE
+========================= */
+
+.promise {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    text-align: center;
+
+    background: #f8f4ff;
+
+    border-radius: 20px;
+
+    padding: 18px;
+
+    margin-bottom: 20px;
+}
+
+.promise span {
+    font-size: 25px;
+}
+
+.promise p {
+    margin: 0;
+}
+
+
+/* =========================
+   CENTER TEXT
+========================= */
+
+.center-text {
+    text-align: center;
+
+    color: #ad7593;
+
+    font-weight: 600;
+}
+
+
+/* =========================
+   SPEECH BUBBLE
+========================= */
+
+.speech-bubble {
+    position: relative;
+
+    background: #fff0f6;
+
+    border-radius: 25px;
+
+    padding: 22px;
+
+    text-align: center;
+
+    margin: 25px 0;
+}
+
+.speech-bubble::after {
+    content: "";
+
+    position: absolute;
+
+    bottom: -12px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    border-width: 12px 12px 0;
+
+    border-style: solid;
+
+    border-color: #fff0f6 transparent transparent;
+}
+
+
+/* =========================
+   SOFT NOTE
+========================= */
+
+.soft-note {
+    border-left: 4px solid #dca8bd;
+
+    background: #fff8fb;
+
+    padding: 20px 25px;
+
+    border-radius: 0 20px 20px 0;
+}
+
+
+/* =========================
+   LONG LETTER
+========================= */
+
+.long-letter {
+    background: #fffafc;
+
+    border: 1px solid #f3e3eb;
+
+    border-radius: 20px;
+
+    padding: 25px;
+
+    max-height: 42vh;
+
+    overflow-y: auto;
+}
+
+.long-letter p {
+    margin-bottom: 0;
+}
+
+
+/* =========================
+   MOTIVATION
+========================= */
+
+.motivation-box {
+    background: linear-gradient(
+        135deg,
+        #fff0c9,
+        #fff5df
+    );
+
+    border-radius: 20px;
+
+    padding: 18px 22px;
+
+    margin-top: 20px;
+
+    text-align: center;
+
+    color: #856b4d;
+}
+
+
+/* =========================
+   INGAT
+========================= */
+
+.ingat {
+    font-family: "Fredoka", sans-serif;
+
+    font-size: 30px;
+
+    color: #d8799c;
+
+    text-align: center;
+
+    margin: 15px 0;
+}
+
+.eat-warning {
+    text-align: center;
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #c46e91;
+
+    font-size: 19px;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final-slide {
+    padding-top: 10px;
+}
+
+.final-heart {
+    font-size: 75px;
+
+    animation: heartBeat 2s infinite;
+}
+
+.signature {
+    margin-top: 35px;
+
+    font-family: "Fredoka", sans-serif;
+
+    color: #ad6d91;
+
+    font-size: 20px;
+}
+
+.signature strong {
+    font-size: 28px;
+}
+
+.end-decoration {
+    margin-top: 25px;
+
+    color: #d59ab3;
+
+    letter-spacing: 8px;
+}
+
+
+/* =========================
+   SCROLL HINT
+========================= */
+
+.scroll-hint {
+    margin-top: 30px;
+
+    color: #b7849e;
+
+    animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.navigation {
+    height: 75px;
+    min-height: 75px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 18px;
+
+    border-top: 1px solid #f3e8ef;
+
+    background: rgba(255,255,255,0.65);
+}
+
+.nav-btn {
+    width: 45px;
+    height: 45px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f9e5ef;
+
+    color: #a76888;
+
+    font-size: 22px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+.nav-btn:hover {
+    transform: scale(1.1);
+
+    background: #f4d6e4;
+}
+
+.nav-btn:disabled {
+    opacity: 0.35;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================
+   DOTS
+========================= */
+
+.dots {
+    display: flex;
+
+    gap: 7px;
+
+    align-items: center;
+}
+
+.dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #dfc6d3;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.dot.active {
+    width: 24px;
+
+    border-radius: 20px;
+
+    background: #c685a3;
+}
+
+
+/* =========================
+   SWIPE TEXT
+========================= */
+
+.swipe-text {
+    text-align: center;
+
+    font-size: 11px;
+
+    color: #bda4b1;
+
+    margin: 0 0 10px;
+}
+
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.slide::-webkit-scrollbar,
+.long-letter::-webkit-scrollbar {
+    width: 5px;
+}
+
+.slide::-webkit-scrollbar-thumb,
+.long-letter::-webkit-scrollbar-thumb {
+    background: #e5c9d7;
+
+    border-radius: 10px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        overflow: hidden;
+    }
+
+    .app {
+        width: 100%;
+        height: 100vh;
+
+        margin: 0;
+
+        border-radius: 0;
+
+        box-shadow: none;
+    }
+
+    .top-bar {
+        height: 58px;
+        min-height: 58px;
+
+        padding: 0 18px;
+    }
+
+    .brand {
+        font-size: 14px;
+    }
+
+    .slide {
+        padding: 28px 20px 25px;
+    }
+
+    .slide-content {
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 45px;
+    }
+
+    h2 {
+        font-size: 31px;
+    }
+
+    h3 {
+        font-size: 25px;
+    }
+
+    p {
+        font-size: 16px;
+
+        line-height: 1.65;
+    }
+
+    .big-emoji {
+        font-size: 55px;
+    }
+
+    .letter-box {
+        padding: 19px;
+    }
+
+    .quote-card {
+        padding: 25px 20px;
+    }
+
+    .quote-card p {
+        font-size: 18px;
+    }
+
+    .long-letter {
+        max-height: 48vh;
+
+        padding: 18px;
+    }
+
+    .photo-frame {
+        width: 90%;
+    }
+
+    .photo-frame img {
+        height: 210px;
+    }
+
+    .navigation {
+        height: 65px;
+        min-height: 65px;
+    }
+
+    .nav-btn {
+        width: 42px;
+        height: 42px;
+    }
+
+    .decor {
+        display: none;
+    }
+}
+
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media (max-width: 380px) {
+
+    h1 {
+        font-size: 39px;
+    }
+
+    h2 {
+        font-size: 27px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+
+    .slide {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+  }
